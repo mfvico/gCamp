@@ -14,4 +14,28 @@
  *= require_self
  */
 @import "bootstrap-sprockets";
-@import "bootstrap"
+@import "bootstrap";
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+body {
+  background-image: url("https://farm2.staticflickr.com/1012/1050414916_858a19f321_o.jpg");
+  background-size: cover;
+  
+}
+.bottom_header {
+  background-color:blue;
+  border: 1px solid black;
+  padding: 0px;
+  font-size:24px;
+  margin:10px 0px 0px 0px;
+}
+.bottom_info {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 0px 0px 0px 0px;
+}
+.bottom_ul {
+  border: 1px solid black;
+}

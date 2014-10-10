@@ -20,12 +20,11 @@
   background-color: transparent;
 }
 body {
-  background-image: url("https://farm2.staticflickr.com/1012/1050414916_858a19f321_o.jpg");
+  background-image: url("https://farm2.staticflickr.com/1012/1050414916_fc58eea9a8_b.jpg");
   background-size: cover;
-  
 }
 .bottom_header {
-  background-color:blue;
+  background-color:cyan;
   border: 1px solid black;
   padding: 0px;
   font-size:24px;
@@ -38,4 +37,7 @@ body {
 }
 .bottom_ul {
   border: 1px solid black;
+}
+.navbar-fixed-top {
+  background-color: orange;
 }

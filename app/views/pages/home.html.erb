@@ -1,6 +1,6 @@
-<% quotes = ["\"Failure is not an option. Everyone has to succeed\" - Arnold Schwarzenegger",
-  "\"Your time is limited, so don't waste it living someone else's life\" - Steve Jobs",
-  "\"Better Ingredients, Better Pizza\" - Papa John"] %>
+<% quotes = [["\"Failure is not an option. Everyone has to succeed\"", "\"I am the Governator\""]," - Arnold Schwarzenneger",
+            ["\"Your time is limited, so don't waste it living someone else's life\""], " - Steve Jobs",
+            ["\"Better Ingredients, Better Pizza\""]," - Papa John"] %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,8 +45,9 @@
 
         </div>
       </div>
-    <% quotes.each do |quote| %>
+    <% quotes.each do |quote, author| %>
     <p><%=quote%></p>
+    <p><%=author%></p>
     <%end%>
 
   </body>

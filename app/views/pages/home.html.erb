@@ -1,10 +1,13 @@
+<% quotes = ["\"Failure is not an option. Everyone has to succeed\" - Arnold Schwarzenegger",
+  "\"Your time is limited, so don't waste it living someone else's life\" - Steve Jobs",
+  "\"Better Ingredients, Better Pizza\" - Papa John"] %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
 
   </head>
 
-  <body class="background_image">
+  <body>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -42,7 +45,9 @@
 
         </div>
       </div>
-
+    <% quotes.each do |quote| %>
+    <p><%=quote%></p>
+    <%end%>
 
   </body>
 </html>

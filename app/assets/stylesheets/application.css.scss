@@ -27,7 +27,7 @@ body {
   padding-top: 60px;
 }
 .background_image {
-  background-image: url("https://farm2.staticflickr.com/1012/1050414916_fc58eea9a8_b.jpg");
+  background-image: url("https://farm8.staticflickr.com/7304/10891456256_0b557c1564_b.jpg");
   background-size: cover;
 }
 .bottom_header {
@@ -41,9 +41,11 @@ body {
   border: 1px solid black;
   padding: 10px;
   margin: 0px 0px 0px 0px;
+  background-color: rgba(255, 255, 255, .5)
 }
 .bottom_ul {
   border: 1px solid black;
+  background-color: rgba(255, 255, 255, .5)
 }
 .navbar-fixed-top {
   background-color: orange;
@@ -53,4 +55,7 @@ a {
 }
 .gray {
   color: gray;
+}
+.quotes {
+  background-color: rgba(255, 255, 255, .5)
 }

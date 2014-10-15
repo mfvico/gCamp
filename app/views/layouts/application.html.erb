@@ -50,17 +50,18 @@
         </div>
       </div>
 
-
+<div class="container">
 
 <%= yield %>
 
-</body>
+
 <hr>
 
-<footer class="container">
+<footer>
   <p>&copy; Mello Incorporated 2014</p>
   <%= link_to "About", about_path %>
   <%= link_to "Terms", terms_path %>
+  <%= link_to "FAQ", faq_path %>
 </footer>
 </div> <!-- /container -->
 
@@ -72,4 +73,5 @@
 <script src="../../dist/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
 </html>

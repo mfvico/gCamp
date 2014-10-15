@@ -1,0 +1,7 @@
+<div class="text-center jumbotron">
+  <h1>FAQ</h1>
+</div>
+<% @questions.each do |question| %>
+  <p><strong><%= question.question %></strong></p>
+  <p><%= question.answer %> </p>
+<%end%>

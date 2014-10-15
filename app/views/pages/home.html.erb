@@ -43,11 +43,9 @@
         </div>
       </div>
     <div class="quotes">
-    <% @quotes_authors.each do |author, quotes| %>
-      <% quotes.each do |quote| %>
-        <p><%=quote%></p>
-        <%end%>
-      <p class="gray"><%=author%></p>
+    <% @quotes.each do |quote| %>
+      <p><%= quote.text %></p>
+      <p><%= quote.author %> </p>
     <%end%>
   </div>
 

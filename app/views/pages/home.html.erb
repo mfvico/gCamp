@@ -1,8 +1,3 @@
-<% quotes_authors = [
-            [" - Arnold Schwarzenegger",["\"Failure is not an option. Everyone has to succeed\"", "\"I am the Governator\""]],
-            [ " - Steve Jobs",["\"Your time is limited, so don't waste it living someone else's life\""]],
-            [" - Papa John",["\"Better Ingredients, Better Pizza\""]]
-            ] %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +9,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>W00t!</h1>
+        <h1>gCamp</h1>
         <p>Your life, organized</p>
         <!--<p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>-->
       </div>
@@ -48,7 +43,7 @@
         </div>
       </div>
     <div class="quotes">
-    <% quotes_authors.each do |author, quotes| %>
+    <% @quotes_authors.each do |author, quotes| %>
       <% quotes.each do |quote| %>
         <p><%=quote%></p>
         <%end%>

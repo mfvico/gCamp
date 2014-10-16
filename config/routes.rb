@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :cars
+
   root "pages#index"
   get 'about' => 'pages#about', as: :about
   get 'terms' => 'pages#terms', as: :terms

@@ -44,25 +44,7 @@
         </div>
       </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-
-          <p class="bottom_header">Tasks</h2>
-
-        </div>
-        <div class="col-md-4">
-          <p class="bottom_header">Documents</p>
-
-       </div>
-        <div class="col-md-4">
-          <p class="bottom_header">Comments</p>
-
-
-        </div>
-      </div>
-    <div class="quotes">
+    <div>
     <% @quotes.each do |quote| %>
       <p><%= quote.text %></p>
       <p><%= quote.author %> </p>

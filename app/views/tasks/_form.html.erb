@@ -16,9 +16,14 @@
     <%= f.text_field :task %>
   </div>
   <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_field :due_date %>
+  </div>
+  <div class="field">
     <%= f.label :complete %><br>
     <%= f.check_box :complete %>
   </div>
+
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>

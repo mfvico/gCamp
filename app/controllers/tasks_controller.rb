@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
+  @new_task = true
+
   # GET /tasks
   # GET /tasks.json
   def index
@@ -15,10 +17,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @new_task = true
   end
 
   # GET /tasks/1/edit
   def edit
+    @new_task = false
   end
 
   # POST /tasks

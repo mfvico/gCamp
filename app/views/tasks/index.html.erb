@@ -8,7 +8,7 @@
 
 
 
-<table class="table table-bordered">
+<table class="table">
   <thead>
     <tr>
       <th>Description</th>
@@ -34,9 +34,12 @@
         <%else%>
           <td class="col-md-1">Incomplete</td>
         <%end%>
-        <td class="col-md-1"><%= link_to 'Show', task, class: "btn btn-success btn-sm" %></td>
-        <td class="col-md-1"><%= link_to 'Edit', edit_task_path(task), class: "btn btn-warning btn-sm" %></td>
-        <td class="col-md-1"><%= link_to 'Destroy', task, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-md-3">
+          <div class="pull-right">
+          <%= link_to 'Show', task, class: "btn btn-success btn-sm" %>
+          <%= link_to 'Edit', edit_task_path(task), class: "btn btn-warning btn-sm" %>
+          <%= link_to 'Destroy', task, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
       </tr>
     <% end %>
 

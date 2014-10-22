@@ -11,24 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020211641) do
+ActiveRecord::Schema.define(version: 20141022193746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cars", force: true do |t|
-    t.string   "make"
-    t.string   "model"
-    t.integer  "year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "quotes", force: true do |t|
+    t.string "quote"
+    t.string "author"
   end
 
   create_table "tasks", force: true do |t|
     t.string   "task"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "complete"
+    t.boolean  "complete",   default: false
     t.date     "due_date"
   end
 

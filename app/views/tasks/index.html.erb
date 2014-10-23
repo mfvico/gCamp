@@ -2,11 +2,13 @@
   <p class="alert alert-success" id="notice"><%= notice  %></p>
 <% end %>
 <div class="page-header">
-<%= link_to 'Create Task', new_task_path, class: "btn btn-info pull-right" %>
-<h1>Tasks</h1>
+  <%= link_to 'Create Task', new_task_path, class: "btn btn-info pull-right" %>
+  <h1>Tasks</h1>
 </div>
-
-
+<div class="pull-right">
+  <%= link_to 'Incomplete', tasks_path %>
+  <%= link_to_unless_current 'All', tasks_path(sort_by: "all")  %>
+</div>
 
 <table class="table">
   <thead>

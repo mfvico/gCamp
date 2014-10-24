@@ -28,7 +28,14 @@
 
   <tbody>
     <% @tasks.each do |task| %>
+    <% due_week = task.due_date - Date.today %>
+    <% if due_week <= 0 %>
+      <tr class="alert alert-danger">
+    <% elsif due_week <=7 %>
+      <tr class="alert alert-warning">
+    <% else %>
       <tr>
+    <% end %>
         <td class="col-md-6"><%= task.task %></td>
         <% if task.due_date == nil %>
           <td class="col-md-2"> none </td>

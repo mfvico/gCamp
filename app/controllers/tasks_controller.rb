@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    
 
     if params[:sort_by] == "all"
       @tasks = Task.all

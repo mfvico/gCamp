@@ -3,8 +3,12 @@
 <% end %>
 <div class="page-header">
   <div class="pull-right">
-    <%= link_to 'Incomplete', tasks_path %> |
-    <%= link_to_unless_current 'All', tasks_path(sort_by: "all")  %>
+    <%= link_to_unless_current 'All', tasks_path(sort_by: "all")  %> |
+    <%if params[:sort_by] == nil%>
+      Incomplete
+    <%else%>
+      <%= link_to 'Incomplete', tasks_path %>
+    <%end%>
     <%= link_to 'Create Task', new_task_path, class: "btn btn-info" %>
   </div>
   <h1>Tasks</h1>

@@ -1,8 +1,11 @@
+<% if notice != nil %>
+  <p class="alert alert-success" id="notice"><%= notice  %></p>
+<% end %>
 <div class="page-header">
   <div class="pull-right">
-     <%= link_to 'Create User', new_user_path, class: "btn btn-info" %> 
+     <%= link_to 'Create User', new_user_path, class: "btn btn-info" %>
   </div>
-  <h1>Tasks</h1>
+  <h1>Users</h1>
 </div>
 <table class="table">
   <thead>

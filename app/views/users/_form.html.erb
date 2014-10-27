@@ -1,0 +1,17 @@
+<%= form_for(@user, html: {class: "form-horizontal"}) do |u| %>
+
+  <div>
+    <%= u.label :first_name %>
+    <%= u.text_field :first_name %>
+  </div>
+  <div>
+    <%= u.label :last_name %>
+    <%= u.text_field :last_name %>
+  </div>
+  <div>
+    <%= u.label :email %>
+    <%= u.email_field :email %>
+  </div>
+
+  <%= u.submit "Create user" %>
+<% end %>

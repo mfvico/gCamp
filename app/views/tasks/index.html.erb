@@ -30,9 +30,8 @@
     <% @tasks.each do |task| %>
     <% if task.due_date  %>
       <% due_week = (task.due_date - Date.today) %>
-      <% if due_week <= 0 %>
-        <tr class="alert alert-danger">
-      <% elsif due_week <=7 %>
+
+      <% if due_week <=7 %>
         <tr class="alert alert-warning">
       <% else %>
         <tr>

@@ -1,16 +1,22 @@
 <%= form_for(@user, html: {class: "form-horizontal"}) do |u| %>
 
-  <div>
-    <%= u.label :first_name %>
-    <%= u.text_field :first_name %>
+  <div class="field form-group">
+    <%= u.label :first_name, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-3">
+      <%= u.text_field :first_name, :class => "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= u.label :last_name %>
-    <%= u.text_field :last_name %>
+  <div class="field form-group">
+    <%= u.label :last_name, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-3">
+      <%= u.text_field :last_name, :class => "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= u.label :email %>
-    <%= u.email_field :email %>
+  <div class="field form-group">
+    <%= u.label :email, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-3">
+      <%= u.email_field :email, :class => "form-control" %>
+    </div>
   </div>
 
   <%= u.submit "Create user" %>

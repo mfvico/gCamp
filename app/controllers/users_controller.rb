@@ -6,10 +6,12 @@ class UsersController < ApplicationController
   end
 
   def new
+    @new_user = true
     @user = User.new
   end
 
   def edit
+    @edit_user = true
   end
 
   def create

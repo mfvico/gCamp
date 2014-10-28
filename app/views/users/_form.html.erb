@@ -19,5 +19,17 @@
     </div>
   </div>
 
-  <%= u.submit "Create user" %>
+  <% if @new_user == true %>
+  <div class="actions col-sm-offset-1">
+    <%= u.submit 'Create User', class: "btn btn-primary" %>
+  </div>
+  <% end %>
+
+  <% if @edit_user == true %>
+    <div class="actions col-sm-offset-1">
+      <%= u.submit 'Update User', class: "btn btn-primary" %>
+    </div>
+    <br>
+  <% end %>
+  <br>
 <% end %>

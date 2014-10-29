@@ -7,18 +7,24 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
 
-
     if params[:sort_by] == "all"
       @tasks = Task.all
     else
       @tasks = Task.where(complete: false)
     end
+    @task_csv = Task.order(:created_at)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @task_csv.as_csv }
+  end
+
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    
+
   end
 
   # GET /tasks/new

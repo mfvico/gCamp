@@ -15,4 +15,19 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    project_params = params.require(:project).permit(:name)
+    @project = Project.find(params[:id])
+    @project.update(project_params)
+    redirect_to projects_path
+  end
+
 end

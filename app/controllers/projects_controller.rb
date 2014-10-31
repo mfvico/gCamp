@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @new_project = true
   end
 
   def create
@@ -22,6 +23,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @edit_project = true
   end
 
   def update

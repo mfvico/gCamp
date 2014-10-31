@@ -3,14 +3,15 @@
 <% end %>
 
 <div class="page-header">
-  <h1>Project details</h1>
+  <div class="pull-right">
+    <%= link_to "edit", edit_project_path(@project), class: "btn btn-warning" %>
+    <%= link_to "Delete", project_path(@project), class: "btn btn-danger", :method => :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+  <h1><%= @project.name %></h1>
 </div>
 
-<div class="pull-right">
-  <%= link_to "edit", edit_project_path(@project), class: "btn btn-warning" %>
-  <%= link_to "Delete", project_path(@project), class: "btn btn-danger", :method => :delete, data: {confirm: "Are you sure?"} %>
-</div>
-<%= @project.name %>
+
+
 <br>
 <br>
 <%= link_to "back", projects_path, class: "btn btn-primary" %>

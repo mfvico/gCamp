@@ -1,0 +1,18 @@
+class ProjectsController < ApplicationController
+
+  def index
+    @projects = Project.all
+  end
+
+  def new
+    @project = Project.new
+  end
+
+  def create
+    project_params = params.require(:project).permit(:name)
+    @project = Project.new(project_params)
+    @project.save
+    redirect_to projects_path
+  end
+
+end

@@ -1,4 +1,11 @@
-<h1>Project details</h1>
+<% if notice != nil %>
+  <p class="alert alert-success" id="notice"><%= notice  %></p>
+<% end %>
+
+<div class="page-header">
+  <h1>Project details</h1>
+</div>
+
 <div class="pull-right">
   <%= link_to "edit", edit_project_path(@project), class: "btn btn-warning" %>
   <%= link_to "Delete", project_path(@project), class: "btn btn-danger", :method => :delete, data: {confirm: "Are you sure?"} %>

@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     project_params = params.require(:project).permit(:name)
     @project = Project.new(project_params)
     @project.save
+    flash[:notice] = "Project was successfully created"
     redirect_to project_path(@project)
   end
 
@@ -27,12 +28,14 @@ class ProjectsController < ApplicationController
     project_params = params.require(:project).permit(:name)
     @project = Project.find(params[:id])
     @project.update(project_params)
-    redirect_to projects_path
+    flash[:notice] = "Project was successfully updated"
+    redirect_to project_path(@project)
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    flash[:notice] = "Project was successfully destroyed"
     redirect_to projects_path
   end
 

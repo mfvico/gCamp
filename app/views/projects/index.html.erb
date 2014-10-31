@@ -1,8 +1,12 @@
-Projects!
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+  </div>
+  <h1>Projects</h1>
+</div>
 <% @projects.each do |project| %>
-  <%= project.name %>
-  <%= link_to "Details", project_path(project) %>
-  <%= link_to "edit", edit_project_path(project) %>
-<% end %>
+  <%= link_to project.name, project_path(project) %>
+  <hr>
 
-<%= link_to "New Project", new_project_path %>
+
+<% end %>

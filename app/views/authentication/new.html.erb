@@ -1,5 +1,6 @@
+<div class="well well-lg col-md-offset-3 col-md-6">
 <h1>Sign In</h1>
-
+<br>
 <%= form_tag signin_path do |f| %>
 
   <% if @sign_in_error %>
@@ -8,22 +9,25 @@
     </p>
   <% end %>
 
-  <div>
-    <%= label_tag :email %>
+  <div  class="field form-group">
+    <div class="control-label">
+      <%= label_tag :email %>
+    </div>
+    <div>
+      <%= email_field_tag :email, '', :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <div class="control-label">
+      <%= label_tag :password %>
+    </div>
+    <div>
+      <%= password_field_tag :password, '', :class => 'form-control' %>
+    </div>
   </div>
   <div>
-    <%= email_field_tag :email %>
-  </div>
-
-  <div>
-    <%= label_tag :password %>
-  </div>
-  <div>
-    <%= password_field_tag :password %>
-  </div>
-
-  <div>
-    <%= submit_tag "Sign in" %>
+    <%= submit_tag "Sign in", :class => "btn btn-primary" %>
   </div>
 
 <% end %>
+</div>

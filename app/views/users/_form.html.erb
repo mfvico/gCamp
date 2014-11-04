@@ -18,6 +18,18 @@
       <%= u.email_field :email, :class => "form-control" %>
     </div>
   </div>
+  <div class="field form-group">
+    <%= u.label :password, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-3">
+      <%= u.password_field :password, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= u.label :password_confirmation, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-3">
+      <%= u.password_field :password_confirmation, :class => "form-control" %>
+    </div>
+  </div>
 
   <% if @new_user == true %>
   <div class="actions col-sm-offset-2">

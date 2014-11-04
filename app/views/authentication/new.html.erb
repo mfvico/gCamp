@@ -1,10 +1,10 @@
-<div class="well well-lg col-md-offset-3 col-md-6">
+<div class="well well-lg col-md-offset-4 col-md-4">
 <h1>Sign In</h1>
 <br>
 <%= form_tag signin_path do |f| %>
 
   <% if @sign_in_error %>
-    <p>
+    <p class="color-red">
       <%= @sign_in_error %>
     </p>
   <% end %>

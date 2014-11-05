@@ -26,7 +26,7 @@ feature "Tasks" do
     click_on "Edit"
     save_and_open_page
     fill_in "Task", with: "non testy test"
-    fill_in "Due date", with: "2014/11/25"
+    fill_in "Due date", with: "25/11/2014"
     check('Complete')
     click_on "Update Task"
     expect(page).to have_content("non testy test")

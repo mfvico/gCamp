@@ -34,23 +34,13 @@ end
 gem "pg"
 
 gem "kaminari"
-group :development do
+group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'launchy'
+  gem 'better_errors'
 end
 
 gem 'bcrypt', '~> 3.1.7'
 
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# gem 'american_date'

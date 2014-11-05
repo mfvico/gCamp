@@ -31,14 +31,14 @@ feature "Signup" do
       fill_in "Password", with: "test"
       click_on "Sign in"
       expect(page).to have_content("Busta Rhymes")
-    #  save_and_open_page
+      save_and_open_page
 
   end
 
   def signout
     click_on "Sign Out"
     expect(page).to have_no_content("Busta Rhymes")
-    #save_and_open_page
+    save_and_open_page
   end
   scenario "Users can sign in" do
     signin

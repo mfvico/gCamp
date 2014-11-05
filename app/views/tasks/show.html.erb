@@ -9,7 +9,7 @@
 </p>
 <p>
   <strong>Due Date:</strong>
-  <%= @task.due_date %>
+  <%= @task.due_date.strftime("%B %e %Y") %>
 </p>
 <p>
   <strong>Complete?</strong>

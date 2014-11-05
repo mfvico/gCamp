@@ -34,8 +34,11 @@ end
 gem "pg"
 
 gem "kaminari"
-
-gem 'capybara'
+group :development do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'launchy'
+end
 
 gem 'bcrypt', '~> 3.1.7'
 

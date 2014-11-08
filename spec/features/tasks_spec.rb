@@ -10,7 +10,6 @@ feature "Tasks" do
     fill_in "Due date", with: "2014/11/11"
     click_on "Create Task"
     expect(page).to have_content("Test Task")
-    save_and_open_page
   end
 
   def create_task
@@ -24,13 +23,12 @@ feature "Tasks" do
     create_task
     visit tasks_path
     click_on "Edit"
-    save_and_open_page
     fill_in "Task", with: "non testy test"
-    fill_in "Due date", with: "25/11/2014"
+    fill_in "Due date", with: "12/5/2014"
     check('Complete')
     click_on "Update Task"
     expect(page).to have_content("non testy test")
-    save_and_open_page
+    expect(page).to have_content("December 5 2014")
   end
 
   scenario "User can show Tasks" do

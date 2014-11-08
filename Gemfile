@@ -43,4 +43,4 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 
-# gem 'american_date'
+gem 'american_date'

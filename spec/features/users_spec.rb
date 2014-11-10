@@ -47,4 +47,11 @@ feature "Users" do
     expect(page).to have_no_content("Tech N9ne")
   end
 
+  scenario "Users cannot be created without name or email" do
+    visit users_path
+    click_on "Create User"
+    click_on "Create User"
+    expect(page).to have_content("First name can't be blank")
+  end
+
 end

@@ -12,9 +12,12 @@ class ProjectsController < ApplicationController
   def create
     project_params = params.require(:project).permit(:name)
     @project = Project.new(project_params)
-    @project.save
-    flash[:notice] = "Project was successfully created"
-    redirect_to project_path(@project)
+    if @project.save
+      flash[:notice] = "Project was successfully created"
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def show

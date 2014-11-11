@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
     end
   end
   validates :task, presence: true
-  validate :not_past_date
+  validate :not_past_date, on: :create
 
   def not_past_date
     if self.due_date < Date.today

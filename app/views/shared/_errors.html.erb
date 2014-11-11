@@ -1,0 +1,13 @@
+<% if model.errors.any? %>
+  <div id="error_explanation" class="form-group">
+    <div class="alert alert-danger col-sm-offset-1 col-sm-3">
+      <h4><%= pluralize(model.errors.count, "error") %> prohibited this task from being saved:</h4>
+
+      <ul>
+      <% model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

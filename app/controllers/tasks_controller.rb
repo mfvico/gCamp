@@ -30,12 +30,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @new_task = true
+
   end
 
   # GET /tasks/1/edit
   def edit
-    @new_task = false
+
   end
 
   # POST /tasks

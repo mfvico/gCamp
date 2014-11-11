@@ -45,4 +45,20 @@ feature "Tasks" do
     expect(page).to have_no_content("testy test")
   end
 
+  scenario "User cannot submit task without description" do
+    visit tasks_path
+    click_on "Create Task"
+    click_on "Create Task"
+    expect(page).to have_content("Task can't be blank")
+  end
+
+  scenario "User cannot submit task with past due date" do
+    visit tasks_path
+    click_on "Create Task"
+    fill_in "Due date", with: "11/1/2014"
+    fill_in "Task", with: "11/1/2014"
+    click_on "Create Task"
+    expect(page).to have_content("Due date cannot be in the past")
+  end
+
 end

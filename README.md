@@ -1,6 +1,6 @@
 == README
 
-![](https://travis-ci.org/mfvico/gCamp.svg)
+[![Build Status](https://travis-ci.org/mfvico/gCamp.svg?branch=master)](https://travis-ci.org/mfvico/gCamp)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

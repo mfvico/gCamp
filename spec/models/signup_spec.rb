@@ -42,11 +42,11 @@ describe User do
       password_confirmation: "test"
       )
     user = User.new(
-    first_name: "Rob",
-    last_name: "Swanson",
-    email: "fred@rockmail.com",
-    password: "test",
-    password_confirmation: "test"
+      first_name: "Rob",
+      last_name: "Swanson",
+      email: "fred@rockmail.com",
+      password: "test",
+      password_confirmation: "test"
     )
     user.valid?
     expect(user.errors[:email].present?).to eq(true)

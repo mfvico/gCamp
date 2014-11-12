@@ -27,7 +27,6 @@ describe "Tasks" do
     expect(task.errors.present?).to eq(false)
     task.due_date = "1/1/1111"
     task.valid?
-    p task.due_date
     expect(task.errors.present?).to eq(false)
   end
 

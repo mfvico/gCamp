@@ -16,6 +16,8 @@ describe User do
     user.valid?
     expect(user.errors.present?).to eq(true)
     user.password = "test"
+    user.valid?
+    expect(user.errors.present?).to eq(true)
     user.password_confirmation = "test"
     user.valid?
     expect(user.errors.present?).to eq(false)

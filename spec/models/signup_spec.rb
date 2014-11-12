@@ -4,15 +4,21 @@ describe User do
 
   it 'verifies entry of all fields' do
     user = User.new
-    expect(user.valid?).to be(false)
-    user.first_name = 'User'
-    user.last_name = 'Luser'
-    expect(user.valid?).to be(false)
-    user.email = 'user@example.com'
-    expect(user.valid?).to be(false)
-    user.password = 'password'
-    user.password_confirmation = 'password'
-    expect(user.valid?).to be(true)
+    user.valid?
+    expect(user.errors.present?).to eq(true)
+    user.first_name = 'Jim'
+    user.valid?
+    expect(user.errors.present?).to eq(true)
+    user.last_name = 'Gaffigan'
+    user.valid?
+    expect(user.errors.present?).to eq(true)
+    user.email = "jim@jim.com"
+    user.valid?
+    expect(user.errors.present?).to eq(true)
+    user.password = "test"
+    user.password_confirmation = "test"
+    user.valid?
+    expect(user.errors.present?).to eq(false)
   end
 
   it 'verifies that password and confirmation must match' do

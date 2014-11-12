@@ -7,7 +7,7 @@ feature "Tasks" do
     click_on "Tasks"
     click_on "Create Task"
     fill_in "Task", with: "Test Task"
-    fill_in "Due date", with: "2014/11/11"
+    fill_in "Due date", with: "2017/11/11"
     click_on "Create Task"
     expect(page).to have_content("Test Task")
   end
@@ -15,7 +15,7 @@ feature "Tasks" do
   def create_task
     Task.create!(
       task: "testy test",
-      due_date: "2014/11/11"
+      due_date: "2018/11/11"
     )
   end
 

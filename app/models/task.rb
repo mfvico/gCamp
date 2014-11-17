@@ -10,6 +10,8 @@ class Task < ActiveRecord::Base
   validates :task, presence: true
   validate :not_past_date, on: :create
 
+  belongs_to :project
+
   def not_past_date
     if due_date
       if self.due_date < Date.today

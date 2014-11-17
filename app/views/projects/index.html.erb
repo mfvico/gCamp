@@ -9,10 +9,20 @@
   <h1>Projects</h1>
 </div>
 
+<table class="table">
+  <thead>
+    <th>Project</th>
+    <th>Number of Tasks</th>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td class="col-md-3"><%= link_to project.name, project_path(project) %></td>
+        <td><%= link_to project.tasks.count, project_tasks_path(project) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @projects.each do |project| %>
-  <%= link_to project.name, project_path(project) %>
+
   <hr>
-
-
-<% end %>

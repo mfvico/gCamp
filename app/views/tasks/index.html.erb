@@ -34,37 +34,37 @@
 
   <tbody>
     <% @tasks.each do |task| %>
-    <% if task.due_date  %>
-      <% due_week = (task.due_date - Date.today) %>
+      <% if task.due_date  %>
+        <% due_week = (task.due_date - Date.today) %>
 
-      <% if due_week <=7 %>
-        <tr class="alert alert-warning">
-      <% else %>
-        <tr>
+        <% if due_week <=7 %>
+          <tr class="alert alert-warning">
+        <% else %>
+          <tr>
+        <% end %>
+        <% else %>
+          <tr>
       <% end %>
-      <% else %>
-        <tr>
-    <% end %>
 
-        <td class="col-md-6"><%= task.task %></td>
-        <% if task.due_date == nil %>
-          <td class="col-md-2"> none </td>
-        <%else%>
-          <td class="col-md-2"><%= task.due_date.strftime("%B %e %Y") %></td>
-        <%end%>
-        <%if task.complete == true%>
-          <td class="col-md-1">Complete</td>
-        <%else%>
-          <td class="col-md-1">Incomplete</td>
-        <%end%>
-        <td class="col-md-3">
-          <div class="pull-right">
-          <%= link_to 'Show', project_task_path(@project, task), class: "btn btn-success btn-sm" %>
-          <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-warning btn-sm" %>
-          <%= link_to 'Destroy', project_task_path(@project, task), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </div>
-      </tr>
-    <% end %>
+      <td class="col-md-6"><%= task.task %></td>
+      <% if task.due_date == nil %>
+        <td class="col-md-2"> none </td>
+      <%else%>
+        <td class="col-md-2"><%= task.due_date.strftime("%B %e %Y") %></td>
+      <%end%>
+      <%if task.complete == true%>
+        <td class="col-md-1">Complete</td>
+      <%else%>
+        <td class="col-md-1">Incomplete</td>
+      <%end%>
+      <td class="col-md-3">
+        <div class="pull-right">
+        <%= link_to 'Show', project_task_path(@project, task), class: "btn btn-success btn-sm" %>
+        <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-warning btn-sm" %>
+        <%= link_to 'Destroy', project_task_path(@project, task), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+    </tr>
+  <% end %>
 
   </tbody>
 </table>

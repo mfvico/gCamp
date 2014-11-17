@@ -8,20 +8,11 @@
   </div>
   <h1>Projects</h1>
 </div>
-<table>
-  <thead>
-    <th>Name</th>
-    <th></th>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-      <td><%= project.name %></td>
-      <td><%= link_to "Tasks", project_tasks_path(project) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 
+<% @projects.each do |project| %>
+  <%= link_to project.name, project_path(project) %>
   <hr>
+
+
+<% end %>

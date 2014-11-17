@@ -2,6 +2,12 @@
   <p class="alert alert-success" id="notice"><%= notice  %></p>
 <% end %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li><%= link_to @project.name, projects_path(@project) %></li>
+  <li><%= link_to "Tasks", project_tasks_path %></li>
+  <li class="active">Show</li>
+</ol>
 
 <p>
   <strong>Task:</strong>

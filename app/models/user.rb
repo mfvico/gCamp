@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   has_secure_password
 
+  has_many :memberships
+  has_many :projects, through: :memberships
+
 end

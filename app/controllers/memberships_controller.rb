@@ -3,7 +3,7 @@ class MembershipsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
   def index
-
+    @membership = @project.memberships.new
   end
 
 end

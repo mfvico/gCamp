@@ -61,15 +61,7 @@
 
 <footer>
   <p>&copy; Mello Incorporated 2014</p>
-  <div class="col-md-4">
-    <p><%= link_to_unless_current "About", about_path %> |
-    <%= link_to_unless_current "Terms", terms_path %> |
-    <%= link_to_unless_current "FAQ", faq_path %> |
-    <%= link_to_unless_current "Users", users_path %> |
-    <%= link_to_unless_current "Projects", projects_path %>
-  </p>
-  </div>
-  <div class="col-md-2 col-md-offset-7">
+  <div class="pull-right">
     <%= link_to "https://www.linkedin.com/in/mellodan" do %>
       <%= image_tag("linked_in.png", width: "20em")%>
     <% end %> |
@@ -83,6 +75,15 @@
       <%= image_tag("Galvanize-g.png", width: "20em")%>
     <% end %>
   </div>
+  <div>
+    <p><%= link_to_unless_current "About", about_path %> |
+    <%= link_to_unless_current "Terms", terms_path %> |
+    <%= link_to_unless_current "FAQ", faq_path %> |
+    <%= link_to_unless_current "Users", users_path %> |
+    <%= link_to_unless_current "Projects", projects_path %>
+  </p>
+  </div>
+
 </footer>
 
 </div>

@@ -14,8 +14,12 @@
     <li class="active">Show</li>
   </ol>
 
+  <p>
   <%= link_to pluralize(@project.tasks.count, "task"), project_tasks_path(@project) %>
+  </p>
+  <p>
   <%= link_to pluralize(@project.users.count, "user"), project_memberships_path(@project) %>
+  </p>
 
 
 <br>

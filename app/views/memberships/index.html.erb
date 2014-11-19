@@ -1,31 +1,39 @@
 <div class="page-header">
   <h1><%= @project.name %>: Manage Members </h1>
 </div>
-
-<ol class="breadcrumb">
-  <li><%= link_to "Projects", projects_path %></li>
-  <li><%= link_to @project.name, project_path(@project) %></li>
-  <li class="active">Members</li>
-</ol>
-
-<div class="well form-inline">
-  <%= form_for([@project, @membership], html: {class: "form-inline"}) do |f| %>
-    <%= f.label :user, class: "control-label" %>
-    <%= f.collection_select(:user_id, User.all, :id, :full_name,  {include_blank: "Please Select a User"}, {class: "form-control"}) %>
-    <%= f.select :role, [:member, :owner], {}, {class: "form-control"} %>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
+<div class="row container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Projects", projects_path %></li>
+    <li><%= link_to @project.name, project_path(@project) %></li>
+    <li class="active">Members</li>
+  </ol>
 </div>
-<table class="table-condensed">
+<div class="row container">
+    <%= render "shared/errors", model: @membership %>
+  <div class="well form-inline col-md-6 ">
+    <%= form_for([@project, @membership], html: {class: "form-inline"}) do |f| %>
+      <%= f.collection_select(:user_id, User.all, :id, :full_name,  {include_blank: "Please Select a User"}, {class: "form-control"}) %>
+      <%= f.select :role, [:member, :owner], {}, {class: "form-control"} %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row container">
+  <table class="table-condensed">
     <% @project.users.each do |user| %>
-      <% user.memberships.each do |member| %>
+      <% user.memberships.where(project_id: @project.id).each do |member| %>
         <tr>
         <%= form_for [@project, member], html: {class: "form-inline"} do |f|  %>
           <td><%=link_to user.full_name, user_path(user), class: "control-label " %></td>
           <td><%= f.select :role, [:member, :owner], {prompt: true}, {class: "form-control"} %></td>
           <td><%= f.submit class: "btn btn-primary" %></td>
+          <td><%= link_to project_membership_path(@project, member), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-remove"></span>
+            <% end %></td>
         </tr>
         <% end %>
       <% end %>
     <% end %>
-</table>
+  </table>
+</div>

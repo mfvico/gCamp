@@ -31,4 +31,10 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def destroy
+    @membership = @project.memberships.find(params[:id])
+    @membership.destroy
+    redirect_to project_memberships_path(@project)
+  end
+
 end

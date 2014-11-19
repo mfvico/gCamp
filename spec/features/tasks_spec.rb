@@ -66,7 +66,9 @@ feature "Tasks" do
   scenario "User cannot submit task without description" do
     create_project
     visit projects_path
-    click_on "0"
+    click_on "Tester"
+    save_and_open_page
+    click_on "0 tasks"
     click_on "Create Task"
     click_on "Create Task"
     expect(page).to have_content("Task can't be blank")
@@ -75,7 +77,8 @@ feature "Tasks" do
   scenario "User cannot submit task with past due date" do
     create_project
     visit projects_path
-    click_on "0"
+    click_on "Tester"
+    click_on "0 tasks"
     click_on "Create Task"
     fill_in "Due date", with: "11/1/2014"
     fill_in "Task", with: "11/1/2014"

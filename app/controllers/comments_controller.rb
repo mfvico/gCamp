@@ -9,10 +9,11 @@ class CommentsController < ApplicationController
   def create
     comment_params = params.require(:comment).permit(:task_id, :user_id, :description)
     @comment = @task.comments.new(comment_params)
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to project_task_path(@project, @task)
     else
-      render :show
+      render "tasks/show"
     end
   end
 

@@ -11,6 +11,7 @@ class Task < ActiveRecord::Base
   validate :not_past_date, on: :create
 
   belongs_to :project
+  has_many :comments
 
   def not_past_date
     if due_date

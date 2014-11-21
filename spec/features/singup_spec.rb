@@ -50,7 +50,6 @@ feature "Signup" do
     fill_in "Password", with: "test"
     click_on "Sign in"
     expect(page).to have_content("Busta Rhymes")
-    save_and_open_page
     signout
   end
 

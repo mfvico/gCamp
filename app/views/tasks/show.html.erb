@@ -26,5 +26,18 @@
   <%= @task.complete %>
 </p>
 
+<br>
+<% @comments.each do |comment| %>
+  <%= comment.description %>
+  <%= comment.created_at %>
+<% end %>
+<% if current_user %>
+  <%= form_for [@project, @task, @comment] do |f| %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_project_task_path(@project, @task)%> |
 <%= link_to 'Back', project_tasks_path %>

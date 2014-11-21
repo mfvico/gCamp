@@ -20,14 +20,15 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @task_csv.as_csv }
-  end
-
+    end
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
     @task = @project.tasks.find(params[:id])
+    @comment = @task.comments.new
+    @comments = @task.comments.all
   end
 
   # GET /tasks/new

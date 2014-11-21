@@ -49,7 +49,7 @@ feature "Tasks" do
     click_on "Tester"
     create_task
     click_on "Back"
-    click_on "Show"
+    click_on "Test Task"
     expect(page).to have_content("Test Task")
   end
 

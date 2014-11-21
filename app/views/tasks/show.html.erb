@@ -38,13 +38,29 @@
   </tbody>
 </table>
 <%= render "shared/errors", model: @comment %>
-<% if current_user %>
-  <%= form_for [@project, @task, @comment] do |f| %>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.submit %>
+
+
+  <% if current_user %>
+    <%= form_for [@project, @task, @comment], html: {class: "form-horizontal"} do |f| %>
+
+      <div class="form-group">
+        <div class=" col-sm-9 col-sm-offset-3">
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="actions form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= f.submit class: " btn btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
   <% end %>
-<% end %>
+
+
+
+
 
 <%= link_to 'Edit', edit_project_task_path(@project, @task)%> |
 <%= link_to 'Back', project_tasks_path %>

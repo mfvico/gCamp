@@ -40,7 +40,7 @@ feature "Tasks" do
     check('Complete')
     click_on "Update Task"
     expect(page).to have_content("non testy test")
-    expect(page).to have_content("December 5 2015")
+    expect(page).to have_content("December 5, 2015")
   end
 
   scenario "User can show Tasks" do

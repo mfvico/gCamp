@@ -42,11 +42,13 @@
         <% else %>
           <tr>
         <% end %>
+        
       <% else %>
           <tr>
       <% end %>
 
-      <td class="col-md-6"><%= link_to task.task, project_task_path(@project, task) %>, <%= task.comments.count %></td>
+      <td class="col-md-6"><%= link_to task.task, project_task_path(@project, task) %>
+         <span class="badge"><%= task.comments.count %></span></td>
       <% if task.due_date == nil %>
         <td class="col-md-2"> none </td>
       <%else%>

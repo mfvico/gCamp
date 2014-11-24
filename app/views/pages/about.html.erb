@@ -3,3 +3,11 @@
   <p>Get organized and increase productivity with your team!</p>
   <%= image_tag "meeting-152506_640.png" %>
 </div>
+<p>
+  gCamp is extremely active. Check out our stats below!
+</p>
+<p>
+  <%= pluralize(@projects.count, "Project") %>, <%= pluralize(@tasks.count, "Task") %>,
+  <%= pluralize(@members.count, "Project Member") %>, <%= pluralize(@users.count, "User") %>,
+  <%= pluralize(@comments.count, "Comments") %>
+</p>

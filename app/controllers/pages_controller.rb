@@ -36,4 +36,12 @@ class PagesController <ApplicationController
     @questions = [question1, question2, question3]
   end
 
+  def about
+    @projects = Project.all
+    @tasks = Task.all
+    @members = Membership.all
+    @comments = Comment.all
+    @users = User.all
+  end
+
 end

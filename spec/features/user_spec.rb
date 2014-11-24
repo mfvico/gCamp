@@ -32,8 +32,6 @@ feature "Users" do
     fill_in "Email", with: "strange@music.com"
     fill_in "First name", with: "Busta"
     fill_in "Last name", with: "Rhymes"
-    fill_in "Password", with: "testy"
-    fill_in "Password confirmation", with: "testy"
     click_on "Update User"
     expect(page).to have_content("strange@music.com")
     expect(page).to have_content("Busta Rhymes")

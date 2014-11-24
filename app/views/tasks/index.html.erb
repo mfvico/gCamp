@@ -42,7 +42,7 @@
         <% else %>
           <tr>
         <% end %>
-        
+
       <% else %>
           <tr>
       <% end %>
@@ -62,7 +62,9 @@
       <td class="col-md-3">
         <div class="pull-right">
         <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-warning btn-sm" %>
-        <%= link_to 'Destroy', project_task_path(@project, task), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %></td>
       </div>
     </tr>
   <% end %>

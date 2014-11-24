@@ -21,7 +21,7 @@ feature "Membership" do
   def add_member
     visit projects_path
     click_on "My Project"
-    click_on "0 users"
+    click_on "0 Members"
     select "Vico Mello", :from => "membership[user_id]"
     click_on "Create Membership"
   end

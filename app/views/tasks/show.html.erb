@@ -33,7 +33,12 @@
   <tbody>
     <% @task.comments.where(:created_at != nil).each do |comment| %>
         <tr>
-          <td class="col-md-3"><%= link_to comment.user.full_name, user_path(comment.user_id) %>
+          <td class="col-md-3">
+          <% if comment.user == nil  %>
+            <span class="text-muted">Deleted User</span>
+          <% else %>
+            <%= link_to comment.user.full_name, user_path(comment.user_id) %>
+          <% end %>
             <br><span class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
             </td>
           <td class="col-md-9"><%= comment.description %></td>

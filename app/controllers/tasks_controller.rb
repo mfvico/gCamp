@@ -29,6 +29,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.find(params[:id])
     @comment = @task.comments.new
     @comments = @task.comments.all
+    @deleted_users = Comment.where.not(user_id: User.pluck(:id))
   end
 
   # GET /tasks/new

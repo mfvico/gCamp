@@ -51,10 +51,6 @@ class ProjectsController < ApplicationController
 
   private
 
-  def not_logged_in
-    if current_user == nil
-      redirect_to signin_path
-    end
-  end
+  
 
 end

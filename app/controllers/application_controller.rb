@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-
+  def not_logged_in
+    if current_user == nil
+      redirect_to signin_path
+      flash[:alert] = "You must be logged to access that action"
+    end
+  end
 
 end

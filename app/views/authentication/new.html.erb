@@ -1,4 +1,9 @@
 <div class="well well-lg col-md-offset-4 col-md-4">
+  <% if alert %>
+    <div class="alert alert-danger">
+      <%= alert %>
+    </div>
+  <% end %>
 <h1>Sign In</h1>
 <br>
 <%= form_tag signin_path do |f| %>

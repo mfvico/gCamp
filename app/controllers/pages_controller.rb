@@ -1,9 +1,5 @@
-class PagesController <ApplicationController
-  before_action :set_locale
+class PagesController < PublicController
 
-    def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
   def index
 
     quote1 = Quote.new

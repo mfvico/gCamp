@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  before_action :not_logged_in
+
   def index
     @projects = Project.all
   end
@@ -45,6 +47,14 @@ class ProjectsController < ApplicationController
     @project.destroy
     flash[:notice] = "Project was successfully destroyed"
     redirect_to projects_path
+  end
+
+  private
+
+  def not_logged_in
+    if current_user == nil
+      redirect_to signin_path
+    end
   end
 
 end

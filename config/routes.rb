@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+
+
   root "pages#index"
   get 'about' => 'pages#about', as: :about
   get 'terms' => 'pages#terms', as: :terms

@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
 
   layout :determine_layout
 
+  class AccessDenied < StandardError
+
+  end
+
+  rescue_from AccessDenied, with: :render_404
+
+  def render_404
+    render "public/404", status: :not_found, layout: false
+  end
+
   def current_user
     User.find_by(id: session[:user_id])
   end
@@ -14,7 +24,7 @@ class ApplicationController < ActionController::Base
   private
 
   def not_logged_in
-    if current_user == nil
+    unless current_user
       redirect_to signin_path
       flash[:alert] = "You must be logged to access that action"
     end
@@ -23,7 +33,6 @@ class ApplicationController < ActionController::Base
   def determine_layout
     current_user ? "application" : "public"
   end
-
 
 
 

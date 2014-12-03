@@ -1,4 +1,3 @@
 class PublicController < ApplicationController
 
-
 end

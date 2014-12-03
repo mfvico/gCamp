@@ -9,7 +9,9 @@
     <%else%>
       <%= link_to 'Incomplete', project_tasks_path %>
     <%end%>
-    <%= link_to 'Create Task', new_project_task_path, class: "btn btn-info" %>
+    <% if current_user.memberships.where(project_id: @project.id).exists? %>
+      <%= link_to 'Create Task', new_project_task_path, class: "btn btn-info" %>
+    <% end %>
   </div>
   <h1>Tasks</h1>
 </div>
@@ -60,12 +62,14 @@
         <td class="col-md-1">Incomplete</td>
       <%end%>
       <td class="col-md-3">
+        <% if current_user.memberships.where(project_id: @project.id).exists? %>
         <div class="pull-right">
         <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-warning btn-sm" %>
         <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } do %>
           <span class="glyphicon glyphicon-remove"></span>
         <% end %></td>
       </div>
+        <% end %>
     </tr>
   <% end %>
 

@@ -46,3 +46,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'american_date'
 
 gem 'faraday'
+
+gem 'pry'

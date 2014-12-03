@@ -12,7 +12,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @edit_user = true
+    if current_user.id != @user.id
+      raise AccessDenied
+    end
   end
 
   def create

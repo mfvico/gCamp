@@ -47,7 +47,7 @@ class MembershipsController < ApplicationController
 
   def member_check
     unless current_user.memberships.where(project_id: @project.id).exists?
-        raise AccessDenied
+      raise AccessDenied
     end
   end
 

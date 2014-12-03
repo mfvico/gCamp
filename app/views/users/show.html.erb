@@ -1,8 +1,15 @@
 <% if notice != nil %>
   <p class="alert alert-success" id="notice"><%= notice  %></p>
 <% end %>
+<div class="page-header">
+  <% if current_user.id == @user.id %>
+    <div class="pull-right">
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning btn-sm" %>
+    </div>
 
-<h1>User</h1>
+  <% end %>
+  <h1><%= @user.full_name %></h1>
+</div>
 
 <p>
   <strong>First Name:</strong>

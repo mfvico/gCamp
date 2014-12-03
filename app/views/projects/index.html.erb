@@ -16,12 +16,12 @@
     <th>Tasks</th>
   </thead>
   <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td class="col-md-4"><%= link_to project.name, project_path(project) %></td>
-        <td><%= link_to project.memberships.count, project_memberships_path(project) %></td>
-        <td><%= link_to project.tasks.count, project_tasks_path(project) %></td>
-      </tr>
+    <% current_user.memberships.each do |member| %>
+        <tr>
+          <td class="col-md-4"><%= link_to member.project.name, project_path(member.project) %></td>
+          <td><%= link_to member.project.memberships.count, project_memberships_path(member.project) %></td>
+          <td><%= link_to member.project.tasks.count, project_tasks_path(member.project) %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>

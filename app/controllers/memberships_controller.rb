@@ -4,6 +4,7 @@ class MembershipsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
   before_action :member_check
+  before_action :owner_check
 
   def index
     @membership = @project.memberships.new
@@ -49,6 +50,10 @@ class MembershipsController < ApplicationController
     unless current_user.memberships.where(project_id: @project.id).exists?
       raise AccessDenied
     end
+  end
+
+  def owner_check
+    current_user.memberships.where(project_id: @project.id, role: "owner").exists?
   end
 
 end

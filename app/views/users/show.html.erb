@@ -19,10 +19,11 @@
   <strong>Last Name:</strong>
   <%= @user.last_name %>
 </p>
+<% if current_user.id == @user.id %>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
+<% end %>
 
 <%= link_to 'Back', users_path %>

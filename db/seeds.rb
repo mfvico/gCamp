@@ -15,7 +15,8 @@ admin = User.create!(
 first_name: 'Admin',
 last_name: 'User',
 email: 'admin@example.com',
-password: 'password'
+password: 'password', 
+admin: true
 )
 
 owner = User.create!(
@@ -38,6 +39,9 @@ last_name: 'User',
 email: 'user@example.com',
 password: 'password'
 )
+
+
+
 
 multiple_owners = Project.create!(name: 'Multiple Owners')
 Membership.create!(

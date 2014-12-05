@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  
+
 
   class AccessDenied < StandardError
 
@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_check
+    current_user.admin
+  end
+  
 
 
 

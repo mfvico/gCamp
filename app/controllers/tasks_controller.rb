@@ -47,14 +47,15 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = @project.tasks.new(task_params)
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to project_task_path(@project, @task), notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+    if member_check || admin_check
+      respond_to do |format|
+        if @task.save
+          format.html { redirect_to project_task_path(@project, @task), notice: 'Task was successfully created.' }
+          format.json { render :show, status: :created, location: @task }
+        else
+          format.html { render :new }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -62,13 +63,15 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to project_task_path(@project, @task), notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+    if member_check || admin_check
+      respond_to do |format|
+        if @task.update(task_params)
+          format.html { redirect_to project_task_path(@project, @task), notice: 'Task was successfully updated.' }
+          format.json { render :show, status: :ok, location: @task }
+        else
+          format.html { render :edit }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -76,14 +79,20 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task.destroy
-    respond_to do |format|
-      format.html { redirect_to project_tasks_url(@project), notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+    if member_check || admin_check
+      @task.destroy
+      respond_to do |format|
+        format.html { redirect_to project_tasks_url(@project), notice: 'Task was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
   private
+
+  def member_check
+    current_user.memberships.where(project_id: @project.id).exists?
+  end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_task

@@ -19,7 +19,7 @@
   <p>
   <%= link_to pluralize(@project.users.count, "Member"), project_memberships_path(@project) %>
   </p>
-
+  <% if current_user.memberships.where(project_id: @project.id, role: "owner").exists? || current_user.admin %>
   <div class="well">
     <p>
       <strong>Delete Project</strong>
@@ -32,6 +32,7 @@
       :method => :delete, data: {confirm: "Are you sure?"} %>
 
   </div>
+  <% end %>
 
 <br>
 <br>

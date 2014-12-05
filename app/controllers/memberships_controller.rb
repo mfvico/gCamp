@@ -29,25 +29,29 @@ class MembershipsController < ApplicationController
       :user_id, :role
     )
     @membership = @project.memberships.find(params[:id])
-    if @membership.update(membership_params)
-      redirect_to project_memberships_path(@project),
-      notice: "#{@membership.user.full_name} was successfully updated!"
-    else
-      render :index
+    if owner_check || admin_check
+      if @membership.update(membership_params)
+        redirect_to project_memberships_path(@project),
+        notice: "#{@membership.user.full_name} was successfully updated!"
+      else
+        render :index
+      end
     end
   end
 
   def destroy
     @membership = @project.memberships.find(params[:id])
-    @membership.destroy
-    redirect_to project_memberships_path(@project),
-    notice: "#{@membership.user.full_name} was successfully removed"
+    if owner_check || current_user.id == @membership.user_id || admin_check
+      @membership.destroy
+      redirect_to project_memberships_path(@project),
+      notice: "#{@membership.user.full_name} was successfully removed"
+    end
   end
 
   private
 
   def member_check
-    unless current_user.memberships.where(project_id: @project.id).exists?
+    unless current_user.memberships.where(project_id: @project.id).exists? || current_user.admin
       raise AccessDenied
     end
   end
@@ -55,5 +59,6 @@ class MembershipsController < ApplicationController
   def owner_check
     current_user.memberships.where(project_id: @project.id, role: "owner").exists?
   end
+
 
 end

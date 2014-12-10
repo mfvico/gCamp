@@ -9,7 +9,7 @@
     <%else%>
       <%= link_to 'Incomplete', project_tasks_path %>
     <%end%>
-    <% if current_user.memberships.where(project_id: @project.id).exists? %>
+    <% if current_user.memberships.where(project_id: @project.id).exists? || admin_check %>
       <%= link_to 'Create Task', new_project_task_path, class: "btn btn-info" %>
     <% end %>
   </div>

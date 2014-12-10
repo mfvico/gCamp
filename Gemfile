@@ -38,6 +38,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'launchy'
+  gem 'pry-rails'
   #gem 'better_errors'
 end
 
@@ -48,5 +49,3 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'american_date'
 
 gem 'faraday'
-
-gem 'pry'

@@ -12,7 +12,7 @@
 <p class="alert alert-success" id="notice"><%= notice  %></p>
 <% end %>
 <div class="row container">
-<% if current_user.memberships.where(project_id: @project.id, role: "owner").exists? || current_user.admin %>
+<% if current_user.memberships.where(project_id: @project.id, role: "owner").exists? || admin_check %>
   <%= render "shared/errors", model: @membership %>
   <div class="well form-inline col-md-6 ">
     <%= form_for([@project, @membership], html: {class: "form-inline"}) do |f| %>

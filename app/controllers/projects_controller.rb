@@ -39,19 +39,23 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    project_params = params.require(:project).permit(:name)
-    if @project.update(project_params)
-      flash[:notice] = "Project was successfully updated"
-      redirect_to project_path(@project)
-    else
-      render :edit
+    if owner_check || admin_check
+      project_params = params.require(:project).permit(:name)
+      if @project.update(project_params)
+        flash[:notice] = "Project was successfully updated"
+        redirect_to project_path(@project)
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
-    @project.destroy
-    flash[:notice] = "Project was successfully destroyed"
-    redirect_to projects_path
+    if owner_check || admin_check
+      @project.destroy
+      flash[:notice] = "Project was successfully destroyed"
+      redirect_to projects_path
+    end
   end
 
   private
@@ -61,7 +65,7 @@ class ProjectsController < ApplicationController
   end
 
   def authorize_owner
-    unless current_user.memberships.where(project_id: @project.id, role: "owner").exists?
+    unless current_user.memberships.where(project_id: @project.id, role: "owner").exists? || admin_check
       raise AccessDenied
     end
   end
@@ -73,7 +77,7 @@ class ProjectsController < ApplicationController
   end
 
   def owner_check
-
+    current_user.memberships.where(project_id: @project.id, role: "owner")
   end
 
 end

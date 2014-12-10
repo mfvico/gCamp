@@ -19,12 +19,23 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
   helper_method :current_user
+  helper_method :admin_check
 
   private
 
   def not_logged_in
     unless current_user
+      store_location
       redirect_to signin_path
       flash[:alert] = "You must be logged to access that action"
     end
@@ -33,8 +44,5 @@ class ApplicationController < ActionController::Base
   def admin_check
     current_user.admin
   end
-  
-
-
 
 end

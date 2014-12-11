@@ -11,11 +11,12 @@ Task.delete_all
 Comment.delete_all
 Membership.delete_all
 
+
 admin = User.create!(
 first_name: 'Admin',
 last_name: 'User',
 email: 'admin@example.com',
-password: 'password', 
+password: 'password',
 admin: true
 )
 
@@ -41,6 +42,14 @@ password: 'password'
 )
 
 
+tracker = User.create!(
+first_name: "Dan",
+last_name: "Mello",
+email: "dan.mello1001@gmail.com",
+password: "password",
+admin: true,
+tracker_token: "57a5c432c2d28039144b2c1654bd9242"
+)
 
 
 multiple_owners = Project.create!(name: 'Multiple Owners')

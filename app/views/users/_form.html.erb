@@ -32,6 +32,12 @@
         <%= u.password_field :password_confirmation, :class => "form-control" %>
       </div>
     </div>
+    <div class="field form-group">
+      <%= u.label "Pivotal Tracker Token", :tracker_token, :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= u.text_field :tracker_token, :class => "form-control" %>
+      </div>
+    </div>
     <% end %>
 
 

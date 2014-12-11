@@ -48,6 +48,13 @@
   </div>
 
   <div class="field form-group">
+    <%= f.label "Pivotal Tracker Token", :class => ' control-label' %>
+    <div>
+      <%= f.text_field :tracker_token, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
     <%= f.submit "Sign up", class: 'btn btn-primary ' %>
   </div>
 

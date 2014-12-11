@@ -4,8 +4,6 @@ class CommentsController < ApplicationController
     @task = Task.find(params[:task_id])
     @project = Project.find(params[:project_id])
   end
-  before_action :not_logged_in
-
 
   def create
     comment_params = params.require(:comment).permit(:task_id, :user_id, :description)

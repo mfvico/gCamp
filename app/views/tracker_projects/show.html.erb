@@ -1,0 +1,27 @@
+<% @tracker_projects.each do |tracker_project| %>
+  <% if tracker_project[:id].to_s == params[:id] %>
+    <div class="page-header">
+      <h1>Stories for <%= tracker_project[:name] %> </h1>
+    </div>
+  <% end %>
+<% end %>
+<table class="table table-striped">
+  <thead>
+    <th>Story</th>
+    <th>Estimate</th>
+    <th>Labels</th>
+    <th>Current State</th>
+  </thead>
+  <tbody>
+    <% @tracker_stories.each do |stories| %>
+      <% if stories[:current_state] != "accepted" %>
+        <tr>
+          <td><%=link_to stories[:name], "https://www.pivotaltracker.com/n/projects/#{params[:id]}", target: "_blank" %></td>
+          <td><%= stories[:estimate] %></td>
+          <td><%= stories[:label] %></td>
+          <td><%= stories[:current_state] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

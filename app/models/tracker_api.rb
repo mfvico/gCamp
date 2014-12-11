@@ -5,19 +5,24 @@ class TrackerAPI
   end
 
   def projects(token)
-    response = @conn.get do |req|
-      req.url "/services/v5/projects"
-      req.headers['Content-Type'] = 'application/json'
-      req.headers['X-TrackerToken'] = token
+    if token
+      response = @conn.get do |req|
+        req.url "/services/v5/projects"
+        req.headers['Content-Type'] = 'application/json'
+        req.headers['X-TrackerToken'] = token
+      end
+      JSON.parse(response.body, symbolize_names: true)
+    else
+      return []
     end
-    JSON.parse(response.body, symbolize_names: true)
   end
 
-  def stories(token)
+  def stories(token, project_id)
     response = @conn.get do |req|
-      req.url "/services/v5/stories"
+      req.url "/services/v5/projects/#{project_id}/stories?limit=500"
       req.headers['Content-Type'] = 'application/json'
       req.headers['X-TrackerToken'] = token
+
     end
     JSON.parse(response.body, symbolize_names: true)
   end

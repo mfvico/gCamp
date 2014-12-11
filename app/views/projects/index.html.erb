@@ -46,10 +46,10 @@
       <th>Name</th>
     </thead>
     <tbody>
-    <% @tracker_projects.each do |tracker_projects| %>
+    <% @tracker_projects.each do |tracker_project| %>
       <tr>
         <td>
-          <%= link_to tracker_projects[:name], "https://www.pivotaltracker.com/n/projects/#{tracker_projects[:id]}", target: "_blank" %>
+          <%= link_to tracker_project[:name], tracker_project_path(tracker_project[:id]) %>
         </td>
       </tr>
     <% end %>

@@ -3,9 +3,11 @@
 <% end %>
 
 <div class="page-header">
+  <% if current_user.memberships.where(project_id: @project.id, role: "owner").exists? || admin_check %>
   <div class="pull-right">
     <%= link_to "Edit", edit_project_path(@project), class: "btn btn-warning" %>
   </div>
+  <% end %>
   <h1><%= @project.name %></h1>
 </div>
   <ol class="breadcrumb">

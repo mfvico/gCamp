@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :destroy, :show]
   before_action :authorize_owner, only: [:edit, :update, :destroy]
 
+  helper_method :owner_check
+
   def index
     @projects = Project.all
     tracker_api = TrackerAPI.new

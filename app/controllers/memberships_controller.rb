@@ -30,9 +30,13 @@ class MembershipsController < ApplicationController
     )
     @membership = @project.memberships.find(params[:id])
     if owner_check || admin_check
-      if @membership.update(membership_params)
-        redirect_to project_memberships_path(@project),
-        notice: "#{@membership.user.full_name} was successfully updated!"
+      unless @project.memberships.where(role: "owner").count == 1
+        if @membership.update(membership_params)
+          redirect_to project_memberships_path(@project),
+          notice: "#{@membership.user.full_name} was successfully updated!"
+        else
+          render :index
+        end
       else
         render :index
       end
@@ -43,8 +47,13 @@ class MembershipsController < ApplicationController
     @membership = @project.memberships.find(params[:id])
     if owner_check || current_user.id == @membership.user_id || admin_check
       @membership.destroy
-      redirect_to project_memberships_path(@project),
-      notice: "#{@membership.user.full_name} was successfully removed"
+      if owner_check || admin_check
+        redirect_to project_memberships_path(@project),
+        notice: "#{@membership.user.full_name} was successfully removed"
+      else
+        redirect_to projects_path,
+        notice: "You were successfully removed"
+      end
     end
   end
 

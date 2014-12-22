@@ -1,17 +1,16 @@
 require 'rails_helper'
 
+include ObjectCreationMethods
+
 feature "Tasks" do
 
-  def create_project
-    Project.create!(
-    name: "Tester"
-    )
-  end
 
   scenario "User can create Tasks" do
-    create_project
+    user = create_user
+    project = create_project
+    create_membership(user: user, project: project)
     visit projects_path
-    click_on "Tester"
+    click_on "#{project.name}"
     click_on "0 Tasks"
     click_on "Create Task"
     fill_in "Task", with: "Test Task"

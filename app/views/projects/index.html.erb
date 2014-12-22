@@ -1,13 +1,12 @@
+
 <% if notice != nil %>
   <p class="alert alert-success" id="notice"><%= notice  %></p>
 <% end %>
+<%= page_header "Projects" do %>
+  <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+<% end %>
 
-<div class="page-header">
-  <div class="pull-right">
-    <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
-  </div>
-  <h1>Projects</h1>
-</div>
+
 
 <table class="table">
   <thead>

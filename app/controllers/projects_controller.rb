@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    authorize_member unless admin_check
   end
 
   def edit
@@ -68,20 +69,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  def authorize_owner
-    unless current_user.memberships.where(project_id: @project.id, role: "owner").exists? || admin_check
-      raise AccessDenied
-    end
-  end
 
-  def authorize_member
-    unless current_user.projects.include?(@project)
-      raise AccessDenied
-    end
-  end
-
-  def owner_check
-    current_user.memberships.where(project_id: @project.id, role: "owner")
-  end
 
 end

@@ -40,7 +40,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-
+    authorize_member unless owner_check
   end
 
   # POST /tasks

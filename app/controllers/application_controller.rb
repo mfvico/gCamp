@@ -31,6 +31,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :admin_check
+  helper_method :authorize_owner
+  helper_method :authorize_member
+  helper_method :owner_check
 
   private
 
@@ -44,6 +47,22 @@ class ApplicationController < ActionController::Base
 
   def admin_check
     current_user.admin
+  end
+
+  def authorize_owner
+    unless current_user.memberships.where(project_id: @project.id, role: "owner").exists? || admin_check
+      raise AccessDenied
+    end
+  end
+
+  def authorize_member
+    unless current_user.projects.include?(@project)
+      raise AccessDenied
+    end
+  end
+
+  def owner_check
+    current_user.memberships.where(project_id: @project.id, role: "owner")
   end
 
 end

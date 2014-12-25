@@ -18,7 +18,11 @@
         <tr>
           <td><%=link_to stories[:name], "https://www.pivotaltracker.com/n/projects/#{params[:id]}", target: "_blank" %></td>
           <td><%= stories[:estimate] %></td>
-          <td><%= stories[:label] %></td>
+          <td>
+          <% stories[:labels].each do |label| %>
+            <%= label[:name] %>,
+          <% end %>
+            </td>
           <td><%= stories[:current_state] %></td>
         </tr>
       <% end %>

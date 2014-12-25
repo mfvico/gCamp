@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   end
 
 
-  validates :email, presence: true, uniqueness: true
+  before_save { self.email = email.downcase }
+  validates :email, presence: true, :uniqueness => { :case_sensitive => false }
   validates :first_name, :last_name, presence: true
 
 
-  before_save { self.email = email.downcase }
 
   has_secure_password
 
